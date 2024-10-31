@@ -5,49 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content</title>
     <script>
-        async function setIframeSrc() {
+        function setIframeSrc() {
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
 
-            if (id) {
-                try {
-                    const response = await fetch(`/generate-iframe-url?id=${id}`);
-                    const data = await response.json();
-                    const iframe = document.getElementById('myIframe');
-                    iframe.src = data.url;
-                } catch (error) {
-                    console.error('Failed to load iframe URL:', error);
-                }
-            }
-        }
+            // Reverse the id
+            const reversedId = id.split('').reverse().join('');
 
+            const iframe = document.getElementById('myIframe');
+            iframe.src = https://www.eample.com/sharing/embed?surl=${reversedId}; 
+        }
         window.onload = setIframeSrc;
     </script>
 
     <style>
+        /* Ensure the container fills the viewport without scrolling */
         html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
         }
 
+        /* Full-screen iframe container */
         .iframe-container {
-            width: 100vw;
-            height: 95vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+          width: 100vw;
+          height: 95vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
         }
 
+        /* Full-screen responsive iframe */
         .responsive-iframe {
-            width: 100vw;
-            height: 95vh;
-            border: none;
+          width: 100vw;
+          height: 95vh;
+          border: none;
         }
     </style>
 </head>
